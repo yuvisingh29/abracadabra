@@ -1,30 +1,177 @@
 {
-    "version": 2,
-    "presets": [
-        {
-            "id": "enhance-basic",
-            "title": "clean enhance",
-            "text": "enhance clarity, reduce noise, fix exposure balance, and slightly sharpen details. keep original tones, composition, and identity. do not modify face, eyes, or hair."
-        },
-        {
-            "id": "retouch-neck-down",
-            "title": "neck-down retouch",
-            "text": "retouch only below the neck. fix wrinkles and shadows on clothing, remove dust or lint, balance lighting across torso and sleeves. keep realistic texture and proportions. do not edit face or hair."
-        },
-        {
-            "id": "replace-background",
-            "title": "background replace (clean)",
-            "text": "replace the current background with a clean, modern indoor setting. match the lighting and perspective. keep the person identical from the neck up, including face, hair, and colors."
-        },
-        {
-            "id": "streetwear-style",
-            "title": "streetwear vibe",
-            "text": "adjust lighting, shadows, and tone to create a soft modern streetwear aesthetic. deepen blacks, cool the tones, slightly boost clarity, and preserve skin tone accuracy. do not alter face identity."
-        },
-        {
-            "id": "flash-look",
-            "title": "low-light flash look",
-            "text": "simulate the effect of a phone flash in a dark room. bright frontal lighting with soft falloff, visible contrast, and gentle grain for realism. keep colors natural and do not change the subject’s identity."
-        }
-    ]
+  "version": 3,
+  "presets": [
+    { "id": "enhance-basic", "title": "clean enhance", "text": "enhance clarity, reduce noise, balance exposure, mild sharpening. keep original tones and identity. do not modify face, eyes, or hair." },
+    { "id": "enhance-soft", "title": "soft enhance", "text": "slight clarity boost, gentle noise reduction, smooth highlights, protect skin texture. keep colors natural and identity unchanged." },
+    { "id": "enhance-crisp", "title": "crisp detail", "text": "increase micro-contrast and edge sharpness slightly, keep noise low. protect skin and do not change facial identity." },
+    { "id": "denoise-light", "title": "light denoise", "text": "reduce high-iso grain gently while preserving detail. keep natural textures and do not alter facial features." },
+    { "id": "denoise-strong", "title": "strong denoise", "text": "significantly reduce noise in shadows, recover edges softly, avoid plastic look. keep face identity unchanged." },
+    { "id": "dehaze-sky", "title": "dehaze sky", "text": "reduce haze, increase sky contrast and clarity, maintain natural colors and realistic gradients." },
+    { "id": "dehaze-overall", "title": "dehaze overall", "text": "remove atmospheric haze across the image, restore midtone contrast, keep skin tones neutral." },
+    { "id": "shadow-lift", "title": "lift shadows", "text": "raise shadow detail without flattening, keep blacks slightly rich and highlights controlled." },
+    { "id": "highlight-recover", "title": "recover highlights", "text": "pull back clipped highlights, maintain contrast, protect skin tones from greying." },
+    { "id": "exposure-balance", "title": "exposure balance", "text": "balance exposure overall: soft highlight rolloff, subtle shadow lift, keep midtones intact." },
+
+    { "id": "contrast-gentle", "title": "gentle contrast", "text": "add mild s-curve contrast, preserve midtones, keep skin and fabric texture realistic." },
+    { "id": "contrast-deep", "title": "deep contrast", "text": "increase global contrast and deepen blacks slightly, protect highlight detail and skin." },
+    { "id": "matte-fade", "title": "matte fade", "text": "add a soft matte curve to blacks, reduce harsh contrast, keep colors neutral and clean." },
+    { "id": "vignette-soft", "title": "soft vignette", "text": "add a gentle, natural vignette to draw attention to the center, avoid crushing blacks." },
+    { "id": "vignette-strong", "title": "strong vignette", "text": "apply a noticeable vignette, maintain center exposure and protect skin tones." },
+
+    { "id": "color-neutral", "title": "neutral color", "text": "normalize white balance, reduce color casts, keep colors faithful and understated." },
+    { "id": "color-pop", "title": "color pop", "text": "increase saturation slightly, add micro-contrast, keep skin tones accurate and not oversaturated." },
+    { "id": "color-muted", "title": "muted palette", "text": "reduce saturation subtly, keep contrast balanced, maintain skin tone realism." },
+    { "id": "warm-up", "title": "warm up", "text": "add warmth and golden tones carefully, keep whites neutral and skin natural." },
+    { "id": "cool-down", "title": "cool down", "text": "cool the white balance slightly, maintain neutral skin tones and realistic whites." },
+
+    { "id": "bw-balanced", "title": "black & white balanced", "text": "convert to monochrome with balanced contrast and preserved midtones. keep detail in shadows." },
+    { "id": "bw-high-contrast", "title": "black & white punchy", "text": "monochrome with strong contrast and crisp edges, avoid haloing and banding." },
+    { "id": "bw-soft", "title": "black & white soft", "text": "gentle monochrome with soft highlights, protect facial detail and subtle gradients." },
+    { "id": "bw-film", "title": "black & white film vibe", "text": "monochrome with slight grain and soft matte blacks, maintain natural textures." },
+    { "id": "bw-documentary", "title": "black & white documentary", "text": "neutral monochrome, medium contrast, high detail retention, realistic tones." },
+
+    { "id": "film-portra-lite", "title": "film look warm", "text": "warm film-like color response, soft contrast, gentle grain, accurate skin." },
+    { "id": "film-eko-cool", "title": "film look cool", "text": "cool film vibe, lifted shadows, mild grain, keep whites clean and not cyan." },
+    { "id": "film-fade", "title": "film fade", "text": "low contrast film fade, pastel colors, keep faces natural and readable." },
+    { "id": "cinematic-teal-orange", "title": "cinematic teal-orange", "text": "subtle teal in shadows and warm highlights, not heavy-handed, keep skin realistic." },
+    { "id": "cinematic-neutral", "title": "cinematic neutral", "text": "cine-grade contrast with neutral color bias, controlled highlights, lived-in texture." },
+
+    { "id": "hdr-natural", "title": "hdr natural", "text": "expand dynamic range without looking artificial, protect local contrast and textures." },
+    { "id": "hdr-dramatic", "title": "hdr dramatic", "text": "strong highlight and shadow recovery, intense detail, avoid halos and color shifts." },
+    { "id": "haze-golden-hour", "title": "golden hour glow", "text": "warm highlights, soft shadows, subtle bloom, keep sky gradients smooth." },
+    { "id": "blue-hour", "title": "blue hour", "text": "enhance cool twilight tones, gentle contrast, maintain skin warmth and balance." },
+    { "id": "neon-night", "title": "neon night", "text": "boost neon saturation, deepen blacks, preserve facial tones and highlight detail." },
+
+    { "id": "depth-shallow", "title": "shallow depth effect", "text": "soften background with realistic lens blur, keep subject sharp, natural bokeh." },
+    { "id": "depth-tilt-shift", "title": "tilt-shift mini look", "text": "simulate tilt-shift: narrow focus band, gentle vignette, add subtle saturation." },
+    { "id": "motion-freeze", "title": "freeze motion", "text": "increase clarity and micro-contrast to emphasize crisp edges, avoid oversharpening." },
+    { "id": "motion-trail-soft", "title": "soft motion trail", "text": "add gentle directional motion blur to background only, keep subject sharp." },
+    { "id": "glow-soft", "title": "soft glow", "text": "add subtle bloom to highlights, keep midtones clean and faces readable." },
+
+    { "id": "skin-preserve", "title": "preserve skin tone", "text": "protect skin hue and luminance while grading, avoid orange or green shifts." },
+    { "id": "skin-smooth-light", "title": "light skin smooth", "text": "very light texture smoothing on skin while keeping pores visible and natural." },
+    { "id": "skin-evening", "title": "even skin exposure", "text": "even out facial exposure gently, remove hot spots, keep texture and identity." },
+    { "id": "teeth-whiten-subtle", "title": "subtle teeth whiten", "text": "brighten teeth slightly without bluish tint, keep gum color natural." },
+    { "id": "eye-clarity-safe", "title": "eye clarity safe", "text": "slightly enhance eye clarity and catchlight, avoid color change or shape change." },
+
+    { "id": "retouch-neck-down", "title": "neck-down retouch", "text": "edit only below the neck: tidy clothing, reduce lint, balance torso lighting, keep texture." },
+    { "id": "retouch-clothing-press", "title": "press clothing", "text": "lightly reduce wrinkles in clothing, keep fabric texture realistic and not plastic." },
+    { "id": "retouch-dust-lint", "title": "remove dust & lint", "text": "remove visible lint and small dust on clothes and surfaces, avoid over-smoothing." },
+    { "id": "retouch-jewelry-pop", "title": "jewelry pop", "text": "increase micro-contrast and shine on metal jewelry, avoid glare on skin." },
+    { "id": "retouch-shoe-clean", "title": "shoe cleanup", "text": "reduce scuffs and dust on shoes, keep shadows and leather texture realistic." },
+
+    { "id": "background-soften", "title": "background soften", "text": "slightly blur and soften background distractions, keep subject crisp and centered." },
+    { "id": "background-clean-interior", "title": "background replace: clean interior", "text": "replace background with modern clean interior, match perspective and light, keep face unchanged." },
+    { "id": "background-studio-gray", "title": "background replace: gray studio", "text": "replace background with neutral gray studio backdrop, realistic soft shadow at feet if visible." },
+    { "id": "background-soft-gradient", "title": "background gradient", "text": "swap background to a soft dark-to-light gradient, center the subject, keep lighting consistent." },
+    { "id": "background-city-rooftop", "title": "background replace: rooftop", "text": "replace background with city rooftop at dusk, realistic haze and perspective, keep identity unchanged." },
+
+    { "id": "white-balance-auto", "title": "auto white balance", "text": "neutralize color cast, maintain skin tones, keep highlights clean and not tinted." },
+    { "id": "white-balance-daylight", "title": "daylight balance", "text": "shift white balance toward daylight neutrality, avoid excessive warmth or coolness." },
+    { "id": "white-balance-tungsten", "title": "tungsten correction", "text": "counter warm indoor light, maintain natural skin and neutral whites." },
+    { "id": "white-balance-fluoro", "title": "fluorescent correction", "text": "remove green cast from fluorescent lighting, keep skin lifelike." },
+    { "id": "white-balance-mixed", "title": "mixed light balance", "text": "stabilize color under mixed lighting, prioritize accurate skin and neutral whites." },
+
+    { "id": "lens-correction", "title": "lens correction", "text": "fix distortion and subtle chromatic aberration, keep geometry natural." },
+    { "id": "lens-vintage", "title": "vintage lens feel", "text": "soft corners, mild vignette, gentle glow, preserve midframe sharpness." },
+    { "id": "lens-clarity-center", "title": "center clarity", "text": "slightly enhance center sharpness and clarity, keep edges natural." },
+    { "id": "lens-bokeh-boost", "title": "bokeh boost", "text": "emphasize background bokeh without artifacts, maintain subject edge integrity." },
+    { "id": "lens-flare-subtle", "title": "subtle lens flare", "text": "add a faint, realistic lens flare from light source direction, avoid faces." },
+
+    { "id": "tone-curve-soft", "title": "soft tone curve", "text": "gentle s-curve, smoother highlights, richer shadows, keep skin not muddy." },
+    { "id": "tone-curve-strong", "title": "strong tone curve", "text": "pronounced s-curve, deep blacks, crisp highlights, preserve detail." },
+    { "id": "tone-lowkey", "title": "low-key look", "text": "dark, moody exposure with controlled highlights, keep subject readable." },
+    { "id": "tone-highkey", "title": "high-key look", "text": "bright overall exposure with soft shadows, maintain texture and not washed out." },
+    { "id": "tone-matte-color", "title": "matte color film", "text": "matte blacks and gentle saturation, slight grain, calm highlights." },
+
+    { "id": "street-neutral", "title": "street neutral", "text": "moderate contrast, balanced colors, clear midtones, keep a documentary feel." },
+    { "id": "street-moody", "title": "street moody", "text": "cool shadows, soft highlights, increased texture on concrete and metal." },
+    { "id": "street-neon", "title": "street neon", "text": "boost neon signs, deepen night sky, keep skin accurate and not magenta." },
+    { "id": "street-blackgold", "title": "street blackgold", "text": "deep blacks with warm highlights, gentle grain, realistic reflections." },
+    { "id": "street-film-soft", "title": "street film soft", "text": "film-like softness, pastel colors, matte blacks, maintain clarity on subject." },
+
+    { "id": "portrait-natural", "title": "portrait natural", "text": "natural color, light contrast, soft skin smoothing, retain pores and identity." },
+    { "id": "portrait-studio", "title": "portrait studio", "text": "clean studio contrast, subtle catchlights, balanced skin tones, no identity change." },
+    { "id": "portrait-outdoor", "title": "portrait outdoor", "text": "gentle warmth, lifted shadows, protect sky and foliage colors, natural skin." },
+    { "id": "portrait-lowlight", "title": "portrait low light", "text": "reduce noise, soften specular highlights, keep eyes clear and identity accurate." },
+    { "id": "portrait-matte", "title": "portrait matte", "text": "soft blacks, delicate highlights, light grain, preserve skin texture." },
+
+    { "id": "product-clean", "title": "product clean", "text": "neutral white balance, high clarity edges, minimal shadows, no color cast." },
+    { "id": "product-matte", "title": "product matte", "text": "reduced specular highlights, soft contrast, true-to-life color." },
+    { "id": "product-reflection", "title": "product reflection control", "text": "tame glare and reflections while preserving shape and realism." },
+    { "id": "product-pop", "title": "product pop", "text": "increase micro-contrast and saturation slightly, keep whites clean." },
+    { "id": "product-dark-mode", "title": "product dark backdrop", "text": "move product onto a deep charcoal backdrop, soft rim light, realistic shadow." },
+
+    { "id": "landscape-vibrant", "title": "landscape vibrant", "text": "boost greens and blues gently, add clarity, keep clouds natural." },
+    { "id": "landscape-golden", "title": "landscape golden", "text": "warm highlights, soft haze, balanced saturation, clean skies." },
+    { "id": "landscape-matte", "title": "landscape matte", "text": "matte blacks, subtle color, gentle contrast, maintain depth." },
+    { "id": "landscape-fog", "title": "landscape fog", "text": "enhance fog and atmosphere, lower contrast, keep details readable." },
+    { "id": "landscape-deep", "title": "landscape deep tones", "text": "rich shadows and crisp highlights, controlled saturation, natural horizon." },
+
+    { "id": "sky-boost", "title": "sky boost", "text": "increase sky saturation and structure slightly, keep edges clean and halos absent." },
+    { "id": "sky-drama", "title": "sky drama", "text": "dramatic cloud contrast, recover highlight structure, natural gradient." },
+    { "id": "water-clear", "title": "clear water", "text": "enhance water clarity, reduce color cast, keep reflections realistic." },
+    { "id": "trees-rich", "title": "rich foliage", "text": "boost foliage luminance and saturation mildly, avoid radioactive greens." },
+    { "id": "sand-warm", "title": "warm sand", "text": "soft golden tint to sand and rocks, maintain neutral whites." },
+
+    { "id": "architecture-clean", "title": "architecture clean", "text": "fix verticals, remove subtle haze, increase edge clarity, neutral color." },
+    { "id": "architecture-matte", "title": "architecture matte", "text": "matte blacks, gentle highlights, slight desaturation for a modern look." },
+    { "id": "architecture-dusk", "title": "architecture dusk", "text": "blue hour emphasis, window warmth, balance noise and detail." },
+    { "id": "architecture-bw", "title": "architecture b&w", "text": "monochrome with strong geometry contrast, clean whites, deep blacks." },
+    { "id": "architecture-texture", "title": "architecture texture", "text": "enhance textures like brick and metal, maintain natural color." },
+
+    { "id": "food-fresh", "title": "food fresh", "text": "increase saturation locally, keep whites clean, enhance micro-contrast on edges." },
+    { "id": "food-warm-cozy", "title": "food warm cozy", "text": "warm tones, soft highlights, gentle vignette, keep greens natural." },
+    { "id": "food-matte", "title": "food matte", "text": "matte blacks, reduced glare, maintain appetizing color." },
+    { "id": "food-bright", "title": "food bright", "text": "bright exposure, clean whites, crisp edges, minimal shadows." },
+    { "id": "food-dark-mood", "title": "food dark mood", "text": "low-key contrast, spotlight effect, rich color without over-saturation." },
+
+    { "id": "mirror-cleanup", "title": "mirror cleanup", "text": "reduce mirror smudges and dust, soften harsh flash, keep reflection realistic." },
+    { "id": "flash-soften", "title": "soften flash", "text": "reduce specular hotspots from flash, even out exposure, maintain detail." },
+    { "id": "phone-glare-control", "title": "phone glare control", "text": "tame glare on phone screen and keep edges sharp, preserve realism." },
+    { "id": "handheld-vibe", "title": "handheld vibe", "text": "retain handheld look with mild grain and natural motion feel, keep clarity on subject." },
+    { "id": "cleanup-background-specks", "title": "remove small background specks", "text": "remove minor dust and small distractions in background, keep texture." },
+
+    { "id": "clothing-swap-generic", "title": "clothing swap (generic)", "text": "put this upper body clothing on. put this lower body clothing on. match lighting and fabric texture. edit neck and below only; leave face and hair unchanged." },
+    { "id": "clothing-color-match", "title": "match clothing color", "text": "adjust clothing color to match reference swatch, keep realistic shading and texture." },
+    { "id": "logo-remove", "title": "remove small logos", "text": "remove small brand marks on clothing, preserve folds and texture." },
+    { "id": "wrinkle-reduce", "title": "reduce clothing wrinkles", "text": "softly reduce creases while keeping natural fabric grain." },
+    { "id": "fabric-contrast", "title": "fabric micro-contrast", "text": "increase fine detail on fabric stitching and seams, subtle effect only." },
+
+    { "id": "background-park", "title": "background replace: park", "text": "replace background with soft park greenery, match light direction, keep identity unchanged." },
+    { "id": "background-beach", "title": "background replace: beach", "text": "replace with beach scene, soft warm light, natural horizon, maintain subject realism." },
+    { "id": "background-library", "title": "background replace: library", "text": "replace with modern library interior, neutral color, realistic depth of field." },
+    { "id": "background-cafe", "title": "background replace: cafe", "text": "replace with cozy cafe interior, warm lights, realistic perspective." },
+    { "id": "background-brick", "title": "background replace: brick wall", "text": "replace background with textured brick wall, gentle vignette, keep subject crisp." },
+
+    { "id": "edges-anti-halo", "title": "anti-halo edges", "text": "remove sharpening halos, keep edges clean and natural, preserve detail." },
+    { "id": "clarity-midtones", "title": "midtone clarity", "text": "increase clarity mainly in midtones, protect shadows and highlights." },
+    { "id": "texture-boost", "title": "texture boost", "text": "add fine texture to non-skin surfaces, keep skin smooth and natural." },
+    { "id": "grain-fine", "title": "fine grain", "text": "add fine film-like grain, subtle and uniform, avoid banding." },
+    { "id": "grain-medium", "title": "medium grain", "text": "add slightly stronger grain for mood, keep skin readable and not gritty." },
+
+    { "id": "lighting-rembrandt", "title": "rembrandt lighting feel", "text": "enhance triangle light on cheek, soft shadows, maintain realistic falloff." },
+    { "id": "lighting-butterfly", "title": "butterfly lighting feel", "text": "enhance frontal soft light with slight under-nose shadow, keep skin natural." },
+    { "id": "lighting-split", "title": "split lighting feel", "text": "deepen one side shadows, keep highlight side natural, preserve detail." },
+    { "id": "lighting-rim", "title": "rim light accent", "text": "add gentle rim light on edges of subject, maintain main exposure." },
+    { "id": "lighting-backlit", "title": "backlit balance", "text": "balance backlight glow with subject exposure, keep color cast neutral." },
+
+    { "id": "hsl-green-tame", "title": "tame greens", "text": "reduce green saturation slightly, shift hue toward natural foliage, keep skin clean." },
+    { "id": "hsl-blue-deep", "title": "deep blues", "text": "deepen blue tones in sky and water, avoid banding and cyan shift." },
+    { "id": "hsl-red-warm", "title": "warm reds", "text": "warm and soften reds slightly, keep skin and lips natural." },
+    { "id": "hsl-orange-skin-safe", "title": "skin-safe oranges", "text": "stabilize orange range to protect skin hue and luminance." },
+    { "id": "hsl-purple-neutralize", "title": "neutralize purples", "text": "reduce unwanted purple shifts in shadows, keep blacks neutral." },
+
+    { "id": "selective-color-desat", "title": "selective color desat", "text": "desaturate background slightly while keeping subject color, avoid halos." },
+    { "id": "selective-color-subject", "title": "subject color hold", "text": "maintain subject saturation, gently reduce overall saturation for separation." },
+    { "id": "selective-brighten-face", "title": "selective face brighten", "text": "lift exposure on face subtly, keep background unchanged, preserve texture." },
+    { "id": "selective-darken-bg", "title": "selective darken background", "text": "dim background by a small amount, keep subject exposure consistent." },
+    { "id": "selective-highlight-hair", "title": "highlight hair detail", "text": "add mild contrast to hair strands, avoid color shift or halo." },
+
+    { "id": "composition-center", "title": "center composition", "text": "nudge framing so the subject is centered, maintain aspect ratio, avoid cropping out key elements." },
+    { "id": "composition-rule-thirds", "title": "rule of thirds", "text": "adjust framing toward rule of thirds alignment, keep subject intact." },
+    { "id": "composition-headroom", "title": "headroom fix", "text": "add or reduce headroom for balanced framing, avoid stretching." },
+    { "id": "composition-straighten", "title": "straighten horizon", "text": "level the image and correct tilt, keep proportions and edges clean." },
+    { "id": "composition-tighten", "title": "tighten crop", "text": "crop slightly to remove dead space, keep limbs and important details." }
+  ]
 }
