@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>abracadabra</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <button class="top-left" id="open-presets">presets</button>
+
+    <div id="progress">0/6</div>
+
+    <main>
+        <h1>abracadabra</h1>
+
+        <textarea id="prompt" placeholder="describe your edit..."></textarea>
+        <input id="images" type="file" accept="image/*" multiple />
+
+        <div class="row">
+            <button id="go">generate 6</button>
+            <button id="cancel" disabled>cancel</button>
+        </div>
+
+        <div id="result" class="grid"></div>
+    </main>
+
+    <div id="preset-modal" aria-hidden="true">
+        <div class="preset-backdrop" id="preset-backdrop"></div>
+        <div class="preset-panel" role="dialog" aria-modal="true" aria-labelledby="preset-title">
+            <div class="preset-head">
+                <h2 id="preset-title">presets</h2>
+                <div class="preset-actions">
+                    <input id="preset-search" type="search" placeholder="search presets..." />
+                    <button id="close-presets" class="ghost">close</button>
+                </div>
+            </div>
+            <div class="preset-list" id="preset-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

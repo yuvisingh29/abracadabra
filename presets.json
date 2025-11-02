@@ -1,0 +1,30 @@
+{
+    "version": 2,
+    "presets": [
+        {
+            "id": "enhance-basic",
+            "title": "clean enhance",
+            "text": "enhance clarity, reduce noise, fix exposure balance, and slightly sharpen details. keep original tones, composition, and identity. do not modify face, eyes, or hair."
+        },
+        {
+            "id": "retouch-neck-down",
+            "title": "neck-down retouch",
+            "text": "retouch only below the neck. fix wrinkles and shadows on clothing, remove dust or lint, balance lighting across torso and sleeves. keep realistic texture and proportions. do not edit face or hair."
+        },
+        {
+            "id": "replace-background",
+            "title": "background replace (clean)",
+            "text": "replace the current background with a clean, modern indoor setting. match the lighting and perspective. keep the person identical from the neck up, including face, hair, and colors."
+        },
+        {
+            "id": "streetwear-style",
+            "title": "streetwear vibe",
+            "text": "adjust lighting, shadows, and tone to create a soft modern streetwear aesthetic. deepen blacks, cool the tones, slightly boost clarity, and preserve skin tone accuracy. do not alter face identity."
+        },
+        {
+            "id": "flash-look",
+            "title": "low-light flash look",
+            "text": "simulate the effect of a phone flash in a dark room. bright frontal lighting with soft falloff, visible contrast, and gentle grain for realism. keep colors natural and do not change the subject’s identity."
+        }
+    ]
+}
