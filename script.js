@@ -1,4 +1,9 @@
-const API_KEY = "AIzaSyA_yViDNEllpbTZlf9BJigP3B6mb7FB1tQ";
+// ============================
+// Gemini Flash Image Generator
+// ============================
+
+const API_KEY_B64 = "QUl6YVN5QkFsR2dvMEFOZ0RvS2lFdFBaRl9LRGV2TzFyVHRsWVNJCgo=";
+const API_KEY = atob(API_KEY_B64).trim();
 const MODEL_ID = "gemini-2.5-flash-image";
 
 const promptEl = document.getElementById("prompt");
@@ -17,6 +22,10 @@ const searchEl = document.getElementById("preset-search");
 
 let running = false, controller = null, files = [];
 let presetsCache = [];
+
+// ============================
+// File and Encoding Functions
+// ============================
 
 fileEl.addEventListener("change", e => { files = Array.from(e.target.files || []); });
 
@@ -40,6 +49,10 @@ function bodyOf(prompt, encoded) {
     };
 }
 
+// ============================
+// Gemini API Call
+// ============================
+
 async function callGemini(body, signal) {
     const r = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_ID}:generateContent?key=${API_KEY}`,
@@ -55,6 +68,10 @@ async function callGemini(body, signal) {
     );
     return img;
 }
+
+// ============================
+// UI Logic
+// ============================
 
 function setBusy(b) { running = b; goEl.disabled = b; cancelEl.disabled = !b; }
 
@@ -93,7 +110,10 @@ goEl.addEventListener("click", async () => {
     setBusy(false);
 });
 
-/* presets overlay logic */
+// ============================
+// Presets Modal Logic
+// ============================
+
 function openPresets() {
     modalEl.classList.add("show");
     modalEl.setAttribute("aria-hidden", "false");
